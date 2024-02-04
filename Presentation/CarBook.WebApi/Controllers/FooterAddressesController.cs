@@ -20,7 +20,7 @@ namespace CarBook.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> FooterAddressList()
         {
-            var value = mediator.Send(new GetFooterAddressQuery());
+            var value = await mediator.Send(new GetFooterAddressQuery());
             return Ok(value);
         }
         [HttpPost]

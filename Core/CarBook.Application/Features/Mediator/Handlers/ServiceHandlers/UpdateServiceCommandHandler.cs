@@ -23,6 +23,9 @@ namespace CarBook.Application.Features.Mediator.Handlers.ServiceHandlers
         {
 
             var value = await repository.GetByIdAsync(request.ServiceID);
+            value.Title = request.Title;
+            value.Description = request.Description;
+            value.IconUrl = request.IconUrl;
             await repository.UpdateAsync(value);
         }
     }

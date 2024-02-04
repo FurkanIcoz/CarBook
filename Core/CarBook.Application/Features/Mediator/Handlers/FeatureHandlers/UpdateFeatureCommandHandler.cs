@@ -19,9 +19,11 @@ namespace CarBook.Application.Features.Mediator.Handlers.FeatureHandlers
             this.repository = repository;
         }
 
-        public Task Handle(UpdateFeatureCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateFeatureCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var values = await repository.GetByIdAsync(request.FeatureID);
+            values.Name = request.Name;
+            await repository.UpdateAsync(values);
         }
     }
 }

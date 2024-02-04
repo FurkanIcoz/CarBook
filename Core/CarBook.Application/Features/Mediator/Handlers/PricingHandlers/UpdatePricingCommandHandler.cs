@@ -24,6 +24,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.PricingHandlers
         {
 
             var value = await repository.GetByIdAsync(request.PricingID);
+            value.Name = request.Name;
+
             await repository.UpdateAsync(value);
         }
     }
